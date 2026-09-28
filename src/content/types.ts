@@ -26,7 +26,7 @@ export interface GatewayService {
 
 export interface AiCapability {
   slug: string;
-  tag: "Detection" | "Defense" | "Interface" | "Intelligence";
+  tag: "Detection" | "Defence" | "Interface" | "Intelligence";
   name: string;
   assurance: AssuranceStatus;
   summary: string;

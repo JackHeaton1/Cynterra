@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 /** Restrained bento layout (after Aceternity's BentoGrid), brand-themed. */
 export function BentoGrid({
@@ -25,7 +26,8 @@ export function BentoCard({
         className,
       )}
     >
-      {children}
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+      <div className="relative">{children}</div>
     </div>
   );
 }

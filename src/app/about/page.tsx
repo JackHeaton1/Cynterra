@@ -3,6 +3,7 @@ import { CtaSection } from "@/components/cta-section";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { Section, Eyebrow, SectionHeading, Lede } from "@/components/section";
 import { Timeline } from "@/components/ui/timeline";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 import { trackRecord } from "@/content/company";
 import { leadership, site } from "@/content/site";
 
@@ -118,9 +119,9 @@ export default function AboutPage() {
         <SectionHeading id="history-heading" className="text-2xl sm:text-3xl">
           The story so far
         </SectionHeading>
-        <div className="mt-12 max-w-2xl">
+        <TracingBeam className="mx-0 mt-12 max-w-2xl pl-8 md:pl-0">
           <Timeline items={trackRecord.slice()} />
-        </div>
+        </TracingBeam>
       </Section>
 
       <CtaSection />

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ArcMotif } from "@/components/logo";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
-import { StickyScroll } from "@/components/ui/sticky-scroll";
+import { SensorTabs } from "@/components/sensor-tabs";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { EncryptedText } from "@/components/ui/encrypted-text";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Timeline } from "@/components/ui/timeline";
 import { AssuranceStrip } from "@/components/assurance-strip";
 import { AssuranceBadge } from "@/components/assurance-badge";
@@ -43,7 +45,7 @@ const THREE_IDEAS = [
 function SensorPanel({ title, rows }: { title: string; rows: [signal: string, handling: string][] }) {
   return (
     <div className="rounded-lg border border-border-subtle bg-surface">
-      <p className="border-b border-border-subtle px-5 py-3 text-sm font-semibold text-foreground">
+      <p className="max-w-none border-b border-border-subtle px-5 py-3 text-sm font-semibold text-foreground">
         {title}
       </p>
       <table className="w-full text-left text-sm">
@@ -64,7 +66,7 @@ function SensorPanel({ title, rows }: { title: string; rows: [signal: string, ha
           ))}
         </tbody>
       </table>
-      <p className="border-t border-border-subtle px-5 py-3 text-xs text-faint">
+      <p className="max-w-none border-t border-border-subtle px-5 py-3 text-xs text-faint">
         All events log to the organisation&apos;s own repository for analysis.
       </p>
     </div>
@@ -76,7 +78,7 @@ export default function Home() {
     <>
       {/* Hero: the reframe in one screen */}
       <section aria-labelledby="hero-heading" className="relative overflow-hidden">
-        <ArcMotif className="pointer-events-none absolute -right-32 top-10 hidden h-[30rem] w-[30rem] text-foreground opacity-[0.06] md:block" />
+        <BackgroundBeams />
         <div className="relative mx-auto w-full max-w-6xl px-5 pb-20 pt-20 sm:px-8 md:pb-24 md:pt-28">
           <p className="text-sm font-semibold text-accent">
             Secure gateways, built in Canberra since {site.founded}
@@ -88,7 +90,11 @@ export default function Home() {
             AI-era threats need an AI-era defender.
           </h1>
           <p className="mt-5 font-display text-xl font-medium text-foreground">
-            Government-grade gateways. AI-grade vigilance.
+            <EncryptedText
+              text="Government-grade gateways. AI-grade vigilance."
+              revealDelayMs={35}
+              encryptedClassName="text-faint"
+            />
           </p>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
             Delivered through the gateway infrastructure Australian government already trusts.
@@ -162,9 +168,10 @@ export default function Home() {
           defence.
         </Lede>
         <div className="mt-14">
-          <StickyScroll
+          <SensorTabs
             items={[
               {
+                label: "Internet",
                 title: "Secure Internet Gateway",
                 description:
                   "Fully redundant internet connectivity for end users and application services. Web Filtering and SSL Inspection here become the substrate for Shadow AI Visibility. The same inspection, a new lens.",
@@ -180,6 +187,7 @@ export default function Home() {
                 ),
               },
               {
+                label: "Cloud",
                 title: "Cloud gateways: AWS, Azure, Google",
                 description:
                   "Policy enforced to the public cloud, within it, and between clouds. Anomalous API call patterns consistent with agentic tooling surface here first.",
@@ -195,6 +203,7 @@ export default function Home() {
                 ),
               },
               {
+                label: "API",
                 title: "API Gateway",
                 description:
                   "Optimised for high-speed transactional application data, and for spotting machine-driven interaction patterns that no human operator produces.",
@@ -210,6 +219,7 @@ export default function Home() {
                 ),
               },
               {
+                label: "Office 365",
                 title: "Office 365 Gateway",
                 description:
                   "Corporate email filtered for malicious content. The first line against AI-generated phishing that reads like a colleague wrote it.",
@@ -286,9 +296,9 @@ export default function Home() {
       <Section ariaLabelledby="track-heading" className="border-t border-border-subtle">
         <Eyebrow>Track record</Eyebrow>
         <SectionHeading id="track-heading">Trusted where it counts</SectionHeading>
-        <div className="mt-12 max-w-2xl">
+        <TracingBeam className="mx-0 mt-12 max-w-2xl pl-8 md:pl-0">
           <Timeline items={trackRecord.slice()} />
-        </div>
+        </TracingBeam>
       </Section>
 
       <CtaSection />

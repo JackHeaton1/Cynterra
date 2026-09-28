@@ -112,8 +112,10 @@ h3 {
   text-wrap: balance;
 }
 
-p {
-  max-width: 68ch;
+@layer base {
+  p {
+    max-width: 68ch;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

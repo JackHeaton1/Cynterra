@@ -28,7 +28,7 @@ export const capabilities: AiCapability[] = [
   },
   {
     slug: "ai-enabled-attack-defence",
-    tag: "Defense",
+    tag: "Defence",
     name: "AI-Enabled Attack Defence",
     assurance: "in-assessment",
     summary:
