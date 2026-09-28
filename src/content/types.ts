@@ -1,7 +1,7 @@
 /**
  * Content model for the Cynterra site.
  *
- * CREDIBILITY RULE (see README): every service and capability MUST carry an
+ * CREDIBILITY RULE: every service and capability MUST carry an
  * AssuranceStatus. Compliance claims render only through <AssuranceBadge />,
  * which takes this type, so it is structurally impossible to show a compliance
  * claim without a status attached.

@@ -1,6 +1,6 @@
 /**
- * CI guard for credibility rule §5.2 (see README):
- * the four AI capabilities are new services — the existing iRAP assessment
+ * CI guard for the AI-capability credibility rule:
+ * the four AI capabilities are new services; the existing iRAP assessment
  * covers the gateway services only. If a future edit marks any capability
  * 'assessed', this script fails the build instead of shipping the claim.
  *
@@ -16,7 +16,7 @@ for (const cap of capabilities) {
     console.error(
       `FAIL: capability "${cap.name}" is marked 'assessed'. AI capabilities must remain ` +
         `'in-assessment' or 'not-in-scope' until a completed, verified iRAP assessment ` +
-        `covers them. See README credibility rules.`,
+        `covers them.`,
     );
     failures++;
   }

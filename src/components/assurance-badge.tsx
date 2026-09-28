@@ -2,7 +2,7 @@ import type { AssuranceStatus } from "@/content/types";
 import { cn } from "@/lib/utils";
 
 /*
-  CREDIBILITY RULE (see README): the ONLY way a compliance/assessment claim is
+  CREDIBILITY RULE: the ONLY way a compliance/assessment claim is
   rendered on this site. It takes an AssuranceStatus; there is deliberately no
   freeform-text variant, so an unqualified "iRAP assessed" badge cannot be
   attached to a service that hasn't been assessed.

@@ -78,7 +78,7 @@ if any is ever marked `assessed` without a verified assessment. Additionally:
   from every service page and likely from external procurement documents. The
   redirect from the old `/wp-content/uploads/...` path is in place, but the
   actual PDF must be copied into `public/downloads/` before launch (a
-  placeholder README sits there now).
+  placeholder note sits there now).
 - **Architecture diagrams** (Environ overview, per-gateway single/multi-site)
   are worth redrawing to the new palette. They are the only real product visuals that
   exist. Source file URLs are on the legacy cynterra.net site.
