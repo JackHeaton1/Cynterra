@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Cynterra design tokens.
+  Single accent derived from the logo green #abd037. The raw green is reserved
+  for CTAs, the logo, and small marks (--color-cta); for text and borders the
+  accent darkens in light mode (--accent) so every pair passes WCAG AA.
+  Assurance status colours are a deliberately separate, non-accent ramp
+  so compliance state can never be confused with brand decoration.
+*/
+
+:root {
+  /* Light theme (default): warm paper neutrals */
+  --background: #fafaf7;
+  --surface: #ffffff;
+  --surface-raised: #f2f3ec;
+  --border: #e5e7df;
+  --border-strong: #c9cec0;
+  --foreground: #1a1d1b;
+  --muted: #4c5551;
+  --faint: #7c847f;
+  --accent: #5f7a10;
+  --accent-strong: #4c620d;
+  --accent-contrast: #ffffff;
+  --status-assessed: #177a4c;
+  --status-assessed-bg: rgba(23, 122, 76, 0.1);
+  --status-in-assessment: #92600a;
+  --status-in-assessment-bg: rgba(146, 96, 10, 0.1);
+  --status-not-in-scope: #5c666d;
+  --status-not-in-scope-bg: rgba(92, 102, 109, 0.1);
+}
+
+.dark {
+  /* Dark theme: deep neutral, very slightly cool */
+  --background: #0b0d0e;
+  --surface: #121517;
+  --surface-raised: #191d20;
+  --border: #272d31;
+  --border-strong: #3a4247;
+  --foreground: #e8ebec;
+  --muted: #9aa4aa;
+  --faint: #6b757c;
+  --accent: #abd037;
+  --accent-strong: #bfdf5a;
+  --accent-contrast: #10130a;
+  --status-assessed: #4cc38a;
+  --status-assessed-bg: rgba(76, 195, 138, 0.12);
+  --status-in-assessment: #e8b04c;
+  --status-in-assessment-bg: rgba(232, 176, 76, 0.12);
+  --status-not-in-scope: #8a949b;
+  --status-not-in-scope-bg: rgba(138, 148, 155, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-contrast: var(--accent-contrast);
+  /* Brand-green CTA, same in both themes, dark ink on green */
+  --color-cta: #abd037;
+  --color-cta-contrast: #171d08;
+  --color-status-assessed: var(--status-assessed);
+  --color-status-assessed-bg: var(--status-assessed-bg);
+  --color-status-in-assessment: var(--status-in-assessment);
+  --color-status-in-assessment-bg: var(--status-in-assessment-bg);
+  --color-status-not-in-scope: var(--status-not-in-scope);
+  --color-status-not-in-scope-bg: var(--status-not-in-scope-bg);
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, "SF Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  max-width: 68ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
